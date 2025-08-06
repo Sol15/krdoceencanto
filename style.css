@@ -1,0 +1,261 @@
+/* Estilos Gerais */
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+/* Banner estilizado */
+.banner {
+  position: relative;
+  background: linear-gradient(90deg, #ffe3f3 60%, #fffbea 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 320px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 16px #0001;
+  overflow: hidden;
+}
+.banner-content {
+  text-align: center;
+}
+.banner-content h1 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #d94f8a;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+.banner-content p {
+  font-size: 1.3rem;
+  color: #333;
+}
+.banner-content-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  height: 100%;
+}
+.logo-banner {
+  height: 100px;
+  width: auto;
+}
+
+/* Navegação */
+.menu-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 8px #0001;
+}
+.menu-nav .logo {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #d94f8a;
+  letter-spacing: 2px;
+}
+.menu-nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu-nav a {
+  text-decoration: none;
+  color: #d94f8a;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+.menu-nav a:hover {
+  color: #b23c6f;
+}
+.logo-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-menu {
+  height: 40px;
+  width: auto;
+}
+.logo-nav span {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #d94f8a;
+  letter-spacing: 2px;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+/* Grid de produtos */
+.produtos-grid {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.produto-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px #0001;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  width: 220px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+.produto-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px #d94f8a33;
+  z-index: 2;
+}
+.produto-img {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 16px auto;
+  background: #ffe3f3;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px #d94f8a22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Adicione a imagem do produto como background-image depois */
+}
+.produto-card h3 {
+  font-size: 1.2rem;
+  color: #d94f8a;
+  margin-bottom: 8px;
+}
+.produto-card p {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Formulário de pedido */
+.pedido {
+  background: #fffbea;
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px #0001;
+  max-width: 500px;
+  margin: 0 auto 40px auto;
+}
+.pedido h2 {
+  color: #d94f8a;
+  margin-bottom: 20px;
+  text-align: center;
+}
+#pedidoForm label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: bold;
+  color: #333;
+}
+#pedidoForm input,
+#pedidoForm button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border-radius: 8px;
+  border: 1px solid #ffd6e0;
+  font-size: 1rem;
+}
+#pedidoForm button {
+  background: #d94f8a;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  margin-top: 18px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#pedidoForm button:hover {
+  background: #b23c6f;
+}
+
+.produtos h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #d94f8a;
+  margin-bottom: 32px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+/* Rodapé */
+.footer {
+  background: #fff;
+  border-top: 1px solid #ffd6e0;
+  padding: 24px 0;
+  text-align: center;
+}
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  font-size: 1.1rem;
+  color: #d94f8a;
+}
+.logo-footer {
+  height: 60px;
+  width: auto;
+}
+.footer a {
+  color: #d94f8a;
+  text-decoration: none;
+  margin: 0 8px;
+  font-weight: bold;
+}
+.footer a:hover {
+  color: #b23c6f;
+}
+
+/* Bolhas decorativas no banner */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.25;
+  z-index: 2;
+  pointer-events: none;
+}
+.bubble1 {
+  width: 80px;
+  height: 80px;
+  top: 40px;
+  left: 60px;
+  background: #d94f8a;
+}
+.bubble2 {
+  width: 50px;
+  height: 50px;
+  top: 220px;
+  left: 180px;
+  background: #ffd6e0;
+}
+.bubble3 {
+  width: 100px;
+  height: 100px;
+  top: 120px;
+  right: 80px;
+  background: #fffbea;
+}
+.bubble4 {
+  width: 40px;
+  height: 40px;
+  top: 60px;
+  right: 40px;
+  background: #b23c6f;
+}
+.bubble5 {
+  width: 60px;
+  height: 60px;
+  bottom: 30px;
+  left: 120px;
+  background: #ffe3f3;
+}
