@@ -1,252 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Kr Doce Encanto - Pedido</title>
-<style>
-  body {
-    background-color: #fff0f5;
-    color: #333;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 1rem;
-    text-align: center;
-  }
-  h1 {
-    color: #d63384;
-  }
-  .vitrine {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-    gap: 1rem;
-    max-width: 900px;
-    margin: 1rem auto;
-  }
-  .doce-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(214, 51, 132, 0.3);
-    padding: 1rem;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-  }
-  .doce-card:hover {
-    transform: scale(1.05);
-  }
-  .doce-card img {
-    max-width: 100%;
-    border-radius: 6px;
-    margin-bottom: 0.8rem;
-  }
-  .doce-card h3 {
-    margin: 0.5rem 0 0.3rem;
-    color: #d63384;
-  }
-  /* Modal */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 10;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    justify-content: center;
-    align-items: center;
-  }
-  .modal.active {
-    display: flex;
-  }
-  .modal-content {
-    background: white;
-    border-radius: 10px;
-    padding: 2rem;
-    max-width: 400px;
-    width: 90%;
-    text-align: left;
-    position: relative;
-  }
-  .modal-content h2 {
-    color: #d63384;
-    margin-top: 0;
-  }
-  .close-btn {
-    position: absolute;
-    top: 10px; right: 10px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #d63384;
-    border: none;
-    background: transparent;
-  }
-  label {
-    display: block;
-    margin-top: 1rem;
-    font-weight: bold;
-  }
-  input, textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.3rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    font-size: 1rem;
-  }
-  button {
-    margin-top: 1.5rem;
-    background-color: #d63384;
-    color: white;
-    border: none;
-    padding: 0.7rem 1.5rem;
-    border-radius: 50px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  button:hover {
-    background-color: #b12c6e;
-  }
-  .btn-whatsapp {
-    background-color: #25d366;
-    margin-left: 1rem;
-  }
-  .buttons {
-    display: flex;
-    justify-content: flex-start;
-    gap: 1rem;
-  }
-  .success-msg {
-    color: green;
-    margin-top: 1rem;
-    font-weight: bold;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KR Doce Encanto - Pedido</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<h1>Kr Doce Encanto</h1>
-<p>Escolha seu doce e faça seu pedido com facilidade!</p>
-
-<div class="vitrine" id="vitrine">
-  <div class="doce-card" data-nome="Mini Donuts">
-    <img src="https://via.placeholder.com/300x200?text=Mini+Donuts" alt="Mini Donuts" />
-    <h3>Mini Donuts</h3>
-  </div>
-  <div class="doce-card" data-nome="Barras Recheadas">
-    <img src="https://via.placeholder.com/300x200?text=Barras+Recheadas" alt="Barras Recheadas" />
-    <h3>Barras Recheadas</h3>
-  </div>
-  <div class="doce-card" data-nome="Bolinho de Fubá">
-    <img src="https://via.placeholder.com/300x200?text=Bolinho+de+Fubá" alt="Bolinho de Fubá" />
-    <h3>Bolinho de Fubá</h3>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <button class="close-btn" id="closeBtn">&times;</button>
-    <h2>Pedido: <span id="produtoSelecionado"></span></h2>
-    <form id="pedidoForm">
-      <label for="nome">Nome completo</label>
-      <input type="text" id="nome" name="nome" required />
-      
-      <label for="rua">Rua</label>
-      <input type="text" id="rua" name="rua" required />
-      
-      <label for="bairro">Bairro</label>
-      <input type="text" id="bairro" name="bairro" required />
-      
-      <label for="numero">Número</label>
-      <input type="text" id="numero" name="numero" required />
-      
-      <label for="telefone">Telefone (com DDD)</label>
-      <input type="tel" id="telefone" name="telefone" pattern="[0-9]{10,11}" placeholder="11999999999" required />
-      
-      <div class="buttons">
-        <button type="submit">Fazer pedido (Email)</button>
-        <button type="button" class="btn-whatsapp" id="btnWhatsapp">Enviar pelo WhatsApp</button>
+  <header>
+    <nav class="menu-nav">
+      <div class="logo-nav">
+        <img src="logo.png" alt="Logo KR Doce Encanto" class="logo-menu" />
+        <span>KR DOCE ENCANTO</span>
       </div>
-      <p class="success-msg" id="successMsg" style="display:none;">Pedido enviado com sucesso!</p>
+      <ul>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#pedido">Pedido</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <span class="bubble bubble1"></span>
+    <span class="bubble bubble2"></span>
+    <span class="bubble bubble3"></span>
+    <span class="bubble bubble4"></span>
+    <span class="bubble bubble5"></span>
+    <div class="banner-content-flex">
+      <img src="logo.png" alt="Logo KR Doce Encanto" class="logo-banner" />
+      <div>
+        <h1>KR DOCE ENCANTO</h1>
+        <p>Os melhores doces para sua festa!</p>
+        <p>Monte seu pedido especial com a gente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="produtos" id="produtos">
+    <h2>Escolha seu produto</h2>
+    <div class="produtos-grid">
+      <div class="produto-card" data-produto="Cento de Mini Donuts">
+        <div class="produto-img"></div>
+        <h3>Cento de Mini Donuts</h3>
+        <p>Deliciosos mini donuts variados.</p>
+      </div>
+      <div class="produto-card barra-card" data-produto="Barra de Chocolate Recheada">
+        <div class="produto-img"></div>
+        <h3>Barra de Chocolate Recheada</h3>
+        <p>Escolha o sabor:</p>
+        <select class="sabor-select">
+          <option value="Ninho">Ninho</option>
+          <option value="Chocolate">Chocolate</option>
+          <option value="Paçoca">Paçoca</option>
+        </select>
+      </div>
+      <div class="produto-card" data-produto="Bolo Vulcão">
+        <div class="produto-img"></div>
+        <h3>Bolo Vulcão</h3>
+        <p>Bolo fofinho com recheio cremoso.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pedido" id="pedido">
+    <h2>Faça seu pedido</h2>
+    <form id="pedidoForm">
+      <label>Produto
+        <input type="text" name="produto" id="produtoEscolhido" readonly required>
+      </label>
+      <label>Nome Completo
+        <input type="text" name="nome" required>
+      </label>
+      <label>Rua
+        <input type="text" name="rua" required>
+      </label>
+      <label>Número
+        <input type="text" name="numero" required>
+      </label>
+      <label>Bairro
+        <input type="text" name="bairro" required>
+      </label>
+      <label>CEP
+        <input type="text" name="cep" required>
+      </label>
+      <label>Telefone
+        <input type="tel" name="telefone" required>
+      </label>
+      <label>Data do Pedido
+        <input type="date" name="data" required>
+      </label>
+      <button type="submit">Enviar Pedido</button>
     </form>
-  </div>
-</div>
+  </section>
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  emailjs.init("SEU_USER_ID_AQUI"); // Coloque seu User ID do EmailJS aqui
+  <footer class="footer">
+    <div class="footer-content">
+      <img src="logo.png" alt="Logo KR Doce Encanto" class="logo-footer" />
+      <div>
+        <strong>KR DOCE ENCANTO</strong><br>
+        Rua Exemplo, 123 - Bairro - CEP 00000-000<br>
+        <a href="https://instagram.com/seuinsta" target="_blank">Instagram</a> |
+        <a href="https://wa.me/SEUNUMERO" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
 
-  const modal = document.getElementById("modal");
-  const produtoSelecionadoSpan = document.getElementById("produtoSelecionado");
-  const pedidoForm = document.getElementById("pedidoForm");
-  const successMsg = document.getElementById("successMsg");
-  let produtoSelecionado = "";
-
-  // Abrir modal quando clicar no doce
-  document.querySelectorAll(".doce-card").forEach(card => {
-    card.addEventListener("click", () => {
-      produtoSelecionado = card.dataset.nome;
-      produtoSelecionadoSpan.textContent = produtoSelecionado;
-      successMsg.style.display = "none";
-      pedidoForm.reset();
-      modal.classList.add("active");
-    });
-  });
-
-  // Fechar modal
-  document.getElementById("closeBtn").addEventListener("click", () => {
-    modal.classList.remove("active");
-  });
-
-  // Enviar pedido por email usando EmailJS
-  pedidoForm.addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    const formData = {
-      produto: produtoSelecionado,
-      nome: pedidoForm.nome.value,
-      rua: pedidoForm.rua.value,
-      bairro: pedidoForm.bairro.value,
-      numero: pedidoForm.numero.value,
-      telefone: pedidoForm.telefone.value,
-    };
-
-    emailjs.send("SEU_SERVICE_ID", "SEU_TEMPLATE_ID", formData)
-      .then(() => {
-        successMsg.style.display = "block";
-        pedidoForm.reset();
-      }, (error) => {
-        alert("Erro ao enviar pedido. Tente novamente.");
-        console.error(error);
-      });
-  });
-
-  // Enviar pedido pelo WhatsApp
-  document.getElementById("btnWhatsapp").addEventListener("click", () => {
-    const nome = pedidoForm.nome.value.trim();
-    const rua = pedidoForm.rua.value.trim();
-    const bairro = pedidoForm.bairro.value.trim();
-    const numero = pedidoForm.numero.value.trim();
-    const telefone = pedidoForm.telefone.value.trim();
-
-    if(!nome || !rua || !bairro || !numero || !telefone) {
-      alert("Por favor, preencha todos os campos antes de enviar pelo WhatsApp.");
-      return;
-    }
-
-    const mensagem = `Olá, gostaria de fazer o pedido do produto: *${produtoSelecionado}*.%0A` +
-      `Nome: ${nome}%0A` +
-      `Endereço: Rua ${rua}, Bairro ${bairro}, Nº ${numero}%0A` +
-      `Telefone: ${telefone}`;
-
-    // Troque pelo seu número do WhatsApp com DDI+DDD (exemplo abaixo)
-    const meuWhats = "5551986176892";
-
-    const url = `https://wa.me/${meuWhats}?text=${mensagem}`;
-    window.open(url, "_blank");
-  });
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
