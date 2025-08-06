@@ -259,3 +259,56 @@ body {
   left: 120px;
   background: #ffe3f3;
 }
+
+/* Banner e menu responsivo */
+@media (max-width: 700px) {
+  .menu-nav {
+    flex-direction: column;
+    gap: 12px;
+    padding: 1rem;
+  }
+  .logo-nav span {
+    font-size: 1.3rem;
+  }
+  .menu-nav ul {
+    gap: 1rem;
+    font-size: 1rem;
+  }
+  .banner-content-flex {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  .logo-banner {
+    height: 70px;
+  }
+  .banner {
+    height: 220px;
+    padding: 0 8px;
+  }
+  .produtos-grid {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .produto-card {
+    width: 90vw;
+    max-width: 340px;
+    padding: 1rem 0.5rem;
+  }
+  .pedido {
+    padding: 1rem;
+    max-width: 98vw;
+  }
+  .footer-content {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 1rem;
+  }
+  .logo-footer {
+    height: 40px;
+  }
+  .bubble {
+    opacity: 0.18;
+  }
+}
